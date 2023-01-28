@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Homepage</h1>
+
+    <table id="user-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody id="user-table-body">
+
+        </tbody>
+
+
+    </table>
+
+    <script>
+
+        fetch("/users")
+        .then(response=>response.json())
+        .then(data => {
+
+            let rows = data.map(user => `<tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.active ? "Active" : "Inactive"}</td>
+            </tr>`)
+
+            document.getElementById("user-table-body").innerHTML = rows.join("");
+
+        });
+
+
+
+    </script>
+
+
+</body>
+</html>

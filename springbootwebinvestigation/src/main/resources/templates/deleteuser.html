@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+<body>
+
+<div layout:fragment="content">
+    <h1>Delete User</h1>
+
+    <p th:text="${ message }"></p>
+
+    <form method="POST">
+        <input type="hidden" name="id" th:value="${ id }">
+        <input type="submit" name="answer", value="OK" class="btn btn-danger">
+        <input type="submit" name="answer", value="Cancel" class="btn btn-secondary">
+    </form>
+
+
+
+</div>
+
+</body>
+</html>

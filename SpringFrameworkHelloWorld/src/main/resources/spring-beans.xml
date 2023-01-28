@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean class="ie.pt.TestBean">
+        <constructor-arg value="Test Bean Created By Spring"></constructor-arg>
+    </bean>
+
+    <bean class="java.lang.String" id="welcome">
+        <constructor-arg value="Welcome To Spring"></constructor-arg>
+    </bean>
+
+    <bean class="java.lang.String" id="goodbye">
+        <constructor-arg value="Adios"></constructor-arg>
+    </bean>
+
+    <bean class="ie.pt.SqliteUserDao">
+    </bean>
+
+</beans>

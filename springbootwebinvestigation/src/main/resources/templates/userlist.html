@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+<body>
+<div layout:fragment="content">
+    <h1>User List</h1>
+
+    <a href="/adduser" class="btn btn-success">Add User</a>
+
+    <h2 th:if="${#lists.size(users) == 0}">No Users</h2>
+
+    <table th:unless="${#lists.size(users) == 0}" class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Active</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each = "user : ${ users }">
+
+                <td th:text="${ user.id }"></td>
+                <td th:text="${ user.name }"></td>
+                <td th:text="${ user.email }"></td>
+
+
+                <td th:text="${ user.active } ? 'Active' : 'Inactive'"></td>
+                <td>
+                    <a th:href="@{/deleteuser?id={id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/updateuser?id={id}(id=${user.id})}" class="btn btn-primary">Update</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
